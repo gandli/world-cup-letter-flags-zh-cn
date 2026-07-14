@@ -4,6 +4,8 @@ An interactive, open-source creative-coding study for the 2026 football World Cu
 
 > Unofficial fan project. Not affiliated with or endorsed by FIFA, the tournament organizers, or any national football association.
 
+<sub>Created by <a href="https://x.com/youraipulse">@youraipulse</a> and <a href="https://x.com/AmirMushich">@AmirMushich</a> · Inspired by <a href="https://x.com/marina_uiux">@marina_uiux</a></sub>
+
 ![Spain typographic flag hanging beneath its architectural canopy](./docs/preview.png)
 
 Each flag is rendered from the letters in the complete names of its 26-player tournament squad. The glyphs hang on individually simulated threads: brush through them with a pointer or finger and the impulse travels down the strand before settling under gravity.
