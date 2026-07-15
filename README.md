@@ -1,98 +1,53 @@
-# Final Four — Typographic Flags
+# 四强字母旗 · Final Four Typographic Flags
 
-An interactive, open-source creative-coding study for the 2026 football World Cup final four: Spain, England, France and Argentina.
+> 用 **2026 世界杯四强** 26 人大名单的字母悬挂而成的字符帘幕互动装置。
+>
+> 简体中文本地化版 · fork 自 [amirmushichge/world-cup-letter-flags](https://github.com/amirmushichge/world-cup-letter-flags)
 
-> Unofficial fan project. Not affiliated with or endorsed by FIFA, the tournament organizers, or any national football association.
+非官方球迷项目, 不代表 FIFA、赛事主办方或任何足协立场。
 
-<sub>Created by <a href="https://x.com/youraipulse">@youraipulse</a> and <a href="https://x.com/AmirMushich">@AmirMushich</a> · Inspired by <a href="https://x.com/marina_uiux">@marina_uiux</a></sub>
+![西班牙 · 字母旗预览](docs/preview.png)
 
-![Spain typographic flag hanging beneath its architectural canopy](./docs/preview.png)
+四支半决四强 —— **西班牙 · 英格兰 · 法国 · 阿根廷**, 每一面旗子都由本国 26 人大名单的字母组成。
 
-Each flag is rendered from the letters in the complete names of its 26-player tournament squad. The glyphs hang on individually simulated threads: brush through them with a pointer or finger and the impulse travels down the strand before settling under gravity.
+字母悬挂在独立模拟的绳索上; 用鼠标或手指刷过它们, 冲量会沿弦向下传导, 随后在重力下摆动归位。
 
-## Run locally
+## 技术架构
 
-Requirements: Node.js 22 or newer and npm.
+- **Vite 7** · 纯 vanilla JS, 无框架无 TS
+- **Verlet 弦物理** —— 每列字母 = 一条 pinned 顶端的粒子链, 5 次距离约束迭代, 保留弹性形变
+- **Canvas 2D** 逐帧 `fillText` (字母总数约 104 个, 无需 atlas)
+- **HTMLAudioElement** 手势阈值触发解说词槽位
+- WebP 建筑穹顶素材 (AI 生成 → 手工抠边)
 
-```bash
-npm install
-npm run dev
-```
+## 本地化改动
 
-Create a production build with:
+- UI 全站中文化 (index.html · 按钮 · aria-label · 面板 · 元信息)
+- 数据层中文化 (国家诗句 · 建筑说明 · 解说词 · 球员位置 · 名单来源标签)
+- **保留原文**:
+  - 球员姓名 (西/英/法/阿护照名 —— 是字母帘幕的原料, 换译名会破坏)
+  - 国家显示名 (`localName`: España / England / France / Argentina —— 尊重原始语言)
+  - 音频文件名与 URL
 
-```bash
-npm run build
-```
+## 本地运行
 
-## Interaction
+需要 Node.js 22+ 或 Bun 1.2+:
 
-- Move or drag across the flag to catch the hanging name-threads and set them swinging.
-- Use the country navigation, arrow buttons, or the left/right keyboard arrows.
-- Open **Squad** to verify all 26 names used in the composition.
-- Brush through at least two threads to trigger the team's commentary moment automatically; there is no separate sound switch.
-- Reduced-motion preferences are respected.
+\`\`\`bash
+bun install
+bun run dev
+\`\`\`
 
-## Commentary audio
+## 音频
 
-The repository does not ship copyrighted broadcast recordings. FIFA's verified YouTube highlights were tested, but the rights holder disables playback on third-party embedded players. The app therefore uses four local drop-in slots tied to Spain v Belgium, Norway v England, France v Morocco and Argentina v Switzerland:
+仓库不附带受版权保护的比赛解说音频。项目预留了本地文件槽位, 见原始 [`public/audio/README.md`](public/audio/README.md)。
 
-```text
-public/audio/spain-opener-vs-belgium.mp3
-public/audio/spain-qf-merino-88.mp3
-public/audio/england-qf-bellingham-93.mp3
-public/audio/england-equalizer-vs-norway.mp3
-public/audio/england-semi-final-whistle.mp3
-public/audio/france-qf-mbappe-60.mp3
-public/audio/france-second-goal-vs-morocco.mp3
-public/audio/france-semi-final-whistle.mp3
-public/audio/argentina-qf-alvarez-112.mp3
-public/audio/argentina-opener-vs-switzerland.mp3
-public/audio/argentina-semi-final-clincher.mp3
-```
+## 许可
 
-When valid clips are installed, a meaningful brush gesture starts them automatically without a sound switch. Multiple clips for one country alternate on successive gestures. See [`public/audio/README.md`](./public/audio/README.md) for preparation and attribution guidance.
+代码与项目内生成的视觉素材遵循 MIT 协议。比赛解说音频**故意不包含**在仓库内。
 
-## Data snapshot
+## 致谢
 
-Squad data was checked on 13 July 2026 against official competition or national-association sources:
-
-- [Spain — FIFA squad announcement](https://www.fifa.com/en/articles/spain-squad-announcement-luis-de-la-fuente)
-- [England — England Football squad](https://www.englandfootball.com/articles/2026/May/22/england-mens-world-cup-2026-squad-named-by-thomas-tuchel-20262205), including Trevoh Chalobah replacing Tino Livramento
-- [France — FIFA squad announcement](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/france-world-cup-squad-named)
-- [Argentina — AFA final squad](https://www.afa.com.ar/seleccion/posts/lista-de-los-26-jugadores-de-la-seleccion-argentina-para-defender-el-titulo-en-la-copa-del-mundo-2026), with [Marcos Senesi replacing Leonardo Balerdi](https://www.fifa.com/es/tournaments/mens/worldcup/canadamexicousa2026/articles/leonardo-balerdi-baja-copa-mundial-argentina)
-
-Player names and national colours are factual data. This project is unofficial and is not affiliated with FIFA or any national football association.
-
-Flag geometry follows official national references: [Spain's constitutional red-yellow-red flag and coat of arms](https://www.lamoncloa.gob.es/espana/Paginas/constitucion.aspx), [England's Cross of St George](https://www.gov.uk/displaying-number-plates/flags-identifiers-and-stickers), [France's equal blue-white-red vertical bands](https://www.elysee.fr/la-presidence/le-drapeau-francais), and [Argentina's sky-blue/white triband with the Sun of May](https://www.argentina.gob.ar/pais/simbolos/bandera).
-
-## Visual concept
-
-The project is an original implementation inspired by kinetic typographic and cursor-reactive web experiments. Each country uses a generated, photorealistic architectural cutout with transparent edges:
-
-- Spain — terracotta civic arcade with carved timber and azulejo details
-- England — Victorian railway canopy in painted iron and ribbed glass
-- France — Belle Époque marquise in patinated metal and amber glass
-- Argentina — Buenos Aires zinc canopy with fileteado ironwork
-
-The canopy, wall, sky and plaster images were created specifically for this project with OpenAI image generation, then extracted, manually reviewed and exported as optimized WebP assets. No official tournament branding, federation crests, player imagery or third-party visual assets are included.
-
-## Project structure
-
-```text
-public/canopies/  Generated transparent architectural WebP assets
-public/plaster/   Generated country-specific plaster textures
-public/skies/     Generated atmospheric backgrounds
-public/walls/     Generated architecture and edge-mask assets
-src/canopies.js  Canopy asset map, alt text and preloading
-src/data.js      Team rosters, source links and commentary moments
-src/main.js      Verlet strand physics, canvas renderer, audio and interface state
-styles.css       Editorial layout, responsive design and transitions
-index.html       Accessible application shell
-```
-
-## License
-
-Code and project-specific generated visual assets are released under the [MIT License](./LICENSE). Broadcast commentary clips are intentionally excluded; see the audio section above.
-
-Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
+- 原作者: [@youraipulse](https://x.com/youraipulse) · [@AmirMushich](https://x.com/AmirMushich)
+- 灵感: [@marina_uiux](https://x.com/marina_uiux) (kinetic typography 家族)
+- 简体中文本地化: gandli

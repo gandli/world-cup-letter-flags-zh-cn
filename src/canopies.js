@@ -1,57 +1,57 @@
 export const canopyImages = {
   spain: {
     src: "./canopies/spain-canopy.webp",
-    alt: "Photorealistic Spanish canopy with terracotta tiles, carved timber and azulejo details"
+    alt: "西班牙风格拟真穹顶: 赤陶瓦 · 雕刻木梁 · 蓝白釉砖细节"
   },
   england: {
     src: "./canopies/england-canopy.webp",
-    alt: "Photorealistic English Victorian railway canopy in iron and ribbed glass"
+    alt: "英格兰维多利亚式火车站穹顶: 铸铁架 · 罗纹玻璃"
   },
   france: {
     src: "./canopies/france-canopy.webp",
-    alt: "Photorealistic French Belle Époque canopy in patinated metal and amber glass"
+    alt: "法国美好年代穹顶: 铜绿金属 · 琥珀玻璃"
   },
   argentina: {
     src: "./canopies/argentina-canopy.webp",
-    alt: "Photorealistic Buenos Aires canopy with corrugated zinc and fileteado ironwork"
+    alt: "布宜诺斯艾利斯穹顶: 波纹锌板 · fileteado 铁艺"
   }
 };
 
 export const wallImages = {
   spain: {
     src: "./walls/spain-wall-windows-v2.webp",
-    alt: "Sharp Spanish lime-plaster facade with a centered pair of arched iron-grille windows"
+    alt: "西班牙石灰墙立面: 居中一对拱形铁栅窗"
   },
   england: {
     src: "./walls/england-wall-windows-v2.webp",
-    alt: "Sharp soot-darkened English brick facade with three centered bottle-green sash windows"
+    alt: "熏黑砖英式立面: 居中三扇酒瓶绿推拉窗"
   },
   france: {
     src: "./walls/france-wall-windows-v2.webp",
-    alt: "Sharp Parisian limestone facade with one large centered Art Nouveau casement window"
+    alt: "巴黎石灰岩立面: 居中一扇新艺术风格大平开窗"
   },
   argentina: {
     src: "./walls/argentina-wall-windows-v2.webp",
-    alt: "Sharp weathered Buenos Aires facade with a centered pair of turquoise shuttered windows"
+    alt: "布宜诺斯艾利斯风蚀立面: 居中一对青绿色百叶窗"
   }
 };
 
 export const skyImages = {
   spain: {
     src: "./skies/spain-sky.webp",
-    alt: "Warm late-afternoon Mediterranean sky"
+    alt: "地中海午后暖色天空"
   },
   england: {
     src: "./skies/england-sky.webp",
-    alt: "Silver English sky with layered clouds after rain"
+    alt: "雨后英格兰银灰天, 层云叠嶂"
   },
   france: {
     src: "./skies/france-sky.webp",
-    alt: "Soft blue-grey Parisian evening sky"
+    alt: "巴黎黄昏蓝灰天"
   },
   argentina: {
     src: "./skies/argentina-sky.webp",
-    alt: "Expansive late-afternoon Buenos Aires sky"
+    alt: "布宜诺斯艾利斯辽阔的午后天"
   }
 };
 

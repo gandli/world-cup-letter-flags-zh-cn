@@ -121,7 +121,7 @@ function updateCopy(team) {
   $(".country-code").textContent = team.code;
   $(".country-index").textContent = `0${activeIndex + 1} / 04`;
   $(".current-number").textContent = `0${activeIndex + 1}`;
-  $(".roster-title").textContent = `${team.name} squad`;
+  $(".roster-title").textContent = `${team.name} 名单`;
 
   const grouped = team.players.reduce((groups, item) => {
     (groups[item.role] ??= []).push(item);
@@ -136,8 +136,8 @@ function updateCopy(team) {
       </section>`)
     .join("");
 
-  $(".roster-source").innerHTML = `Roster snapshot: <a href="${team.sourceUrl}" target="_blank" rel="noreferrer">${team.sourceLabel}</a>.`;
-  canvas.setAttribute("aria-label", `${team.name} flag formed from hanging strands of player names. Brush across the strings to set them swinging.`);
+  $(".roster-source").innerHTML = `名单快照 · <a href="${team.sourceUrl}" target="_blank" rel="noreferrer">${team.sourceLabel}</a>`;
+  canvas.setAttribute("aria-label", `${team.name} 字母旗, 由球员姓名字母垂挂而成。滑过任意一列, 摆动会沿弦向下传导。`);
 }
 
 function updateCanopy(team) {
@@ -1057,7 +1057,7 @@ async function triggerCommentary(team) {
       audioRetryBlocked = false;
       audioRetryAfter = 0;
       fadeCurrentAudio(COMMENTARY_VOLUME, AUDIO_FADE_IN_MS);
-      showAudioCaption(next.clip.line, "Original match commentary", team.commentary);
+      showAudioCaption(next.clip.line, "原声比赛解说", team.commentary);
       audioStartPending = false;
       return;
     } catch (error) {
@@ -1070,14 +1070,14 @@ async function triggerCommentary(team) {
         audioRetryBlocked = !(navigator.userActivation?.hasBeenActive);
         currentClipIndex = (currentClipIndex - 1 + currentAudioClips.length) % currentAudioClips.length;
       }
-      showAudioCaption(next.clip.line, "Click or drag once to allow match audio", team.commentary);
+      showAudioCaption(next.clip.line, "点击或拖动一次以启用比赛音频", team.commentary);
       audioStartPending = false;
       return;
     }
   }
 
   audioStartPending = false;
-  showAudioCaption(team.commentary.line, "Audio file missing · open official highlight", team.commentary);
+  showAudioCaption(team.commentary.line, "音频文件缺失 · 打开官方集锦", team.commentary);
 }
 
 function openRoster() {
