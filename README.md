@@ -33,10 +33,10 @@
 
 需要 Node.js 22+ 或 Bun 1.2+:
 
-\`\`\`bash
+```bash
 bun install
 bun run dev
-\`\`\`
+```
 
 ## 音频
 
